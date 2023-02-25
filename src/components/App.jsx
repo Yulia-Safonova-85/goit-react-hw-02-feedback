@@ -12,7 +12,7 @@ export class App extends Component {
     bad: 0
   };
 
-  updateCount = state => {
+  updateCount = (state) => {
     this.setState(prevState => ({ [state]: prevState[state] + 1 }));
 }
   countTotalFeedback = () => {

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import "./Feadback.module.css";
 
 export const FeadbackOptions = ({ options,onLeaveFeedback}) => {
     const stateArray = Object.keys(options);
