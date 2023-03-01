@@ -32,7 +32,7 @@ export class App extends Component {
             onLeaveFeedback={this.updateCount}
           />
         </Section>
-        {this.countTotalFeedback ? (
+        {this.countTotalFeedback() > 0 ? (
           <Section title="Statistics">
             <Statistics
               good={good}
