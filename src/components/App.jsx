@@ -24,7 +24,7 @@ export class App extends Component {
   render() {
     const { good, neutral, bad } = this.state;
     const total = good + neutral + bad;
-    const countPositiveFeedbackPercentage = (good / total) * 100;
+    const countPositiveFeedbackPercentage = ((good / total) * 100).toFixed(0);
     return (
       <>
         <Section title="Please leave feadback">
@@ -32,17 +32,19 @@ export class App extends Component {
             onLeaveFeedback={this.updateCount}
           />
         </Section>
-        {this.countTotalFeedback() > 0 ? (
+        
           <Section title="Statistics">
-            <Statistics
+          {total !== 0 ?
+            (<Statistics
               good={good}
               neutral={neutral}
               bad={bad}
               total={total}
               positivePercentage={countPositiveFeedbackPercentage}
             />
-          </Section>) : (<Notification message="There is no feedback" />)}
-      </>
+          ) : (<Notification message="There is no feedback" />)}
+      </Section>
+        </>
     );
   };
 }
